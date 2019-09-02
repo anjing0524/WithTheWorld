@@ -25,13 +25,14 @@ public class Array{
     public boolean insert(int index,int value){
         if(count == len){
             System.out.println("没有位置了");
-            return falsel;
+            return false;
         }
         if(index < 0 || index >= len){
             System.out.println("位置不合法");
             return false;
         }
         for (int i = count; i > index; --i) {
+            System.out.println(i);
             data[i] = data[i-1];
         }
         data[index] = value;
@@ -41,18 +42,36 @@ public class Array{
     
     // 删除数组中的元素
     public boolean delete(int index) {
-        if(index < 0 || index >=len) return false;
-        for (int i = index; i <= count; i++) {
+        if(index < 0 || index >=count) return false;
+        System.out.println(count);
+        for (int i = index; i < count-1; i++) {
+            System.out.println(i+" " + data[i]);
             data[i] = data[i+1];
         }
         count--;
         return true;
     }
+    public boolean delete1(int index){
+        if (index<0 || index >=count) return false;
+        //从删除位置开始，将后面的元素向前移动一位
+        for (int i=index+1; i<count; ++i){
+            System.out.println(i);
+            data[i-1] = data[i];
+        }
+        //删除数组末尾元素  这段代码不需要也可以
+        /*int[] arr = new int[count-1];
+        for (int i=0; i<count-1;i++){
+            arr[i] = data[i];
+        }
+        this.data = arr;*/
+
+        --count;
+        return true;
+    }
     public void printAll() {
         for (int i = 0; i < count; ++i) {
-            System.out.print(data[i] + " ");
+            System.out.println(data[i] + " === " + i );
         }
-        System.out.println();
     }
     public static void main(String[] args) {
         Array array = new Array(5);
@@ -62,7 +81,9 @@ public class Array{
         array.insert(1, 5);
         array.insert(3, 9);
         array.insert(3, 10);
-        //array.insert(3, 11);
+        // array.insert(3, 11);
+        array.printAll();
+        array.delete(0);
         array.printAll();
     }
 
