@@ -206,10 +206,12 @@ public class SinglyLinkedList{
         Node next= null;
         System.out.println("z---" + r.data);
         while(r != p){
-            // 额外存储了一下
+            // 额外存储了一下 保证r+next都在往后走
             next = r.next;
+            // r是pre 也就是新链表
             r.next = pre;
             pre = r;
+            // r后是原链表
             r = next;
         }
         r.next = pre;
@@ -226,7 +228,7 @@ public class SinglyLinkedList{
         //int data[] = {1,2,5};
         //int data[] = {1,2,2,1};
        // int data[] = {1,2,5,2,1};
-        int data[] = {1,2,3,2,1};
+        int data[] = {1,2,3,3,2,1};
 
         for(int i =0; i < data.length; i++){
             //link.insertToHead(data[i]);
