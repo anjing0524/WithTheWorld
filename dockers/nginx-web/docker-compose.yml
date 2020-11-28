@@ -1,0 +1,17 @@
+version: "3"
+services: 
+  nginx1: 
+    image: nginx-web
+    restart: always
+    container_name: nginx1
+    ports: 
+      - 8080:80
+  nginx2:
+    image: nginx-web-2
+    restart: always
+    container_name: nginx2
+    ports: 
+      - 8090:80
+      - 9000:81
+
+
