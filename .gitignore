@@ -4,3 +4,5 @@
 c_cpp/a.out
 rustdir/guessing_game/.vscode/settings.json
 rustdir/guessing_game/target/
+c_cpp/hello
+**/.vscode/**
